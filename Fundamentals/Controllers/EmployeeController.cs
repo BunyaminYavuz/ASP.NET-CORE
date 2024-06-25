@@ -1,3 +1,4 @@
+using Fundamentals.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fundamentals.Controllers
@@ -20,8 +21,13 @@ namespace Fundamentals.Controllers
             return View(languages);
         }
 
-        public IActionResult Index3() {
-            return Content("Employee");
+        public IActionResult Index3()
+        {
+            var employees = new List<Employee>() {
+                new Employee(){Id=1, FirstName="Bunyamin", LastName= "Yavuz"},
+                new Employee(){Id=2, FirstName="Benjamin", LastName= "Yavuz"},
+            };
+            return View("Index3", employees);
         }
     }
 }

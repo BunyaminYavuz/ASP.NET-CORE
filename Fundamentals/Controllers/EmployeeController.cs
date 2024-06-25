@@ -4,14 +4,20 @@ namespace Fundamentals.Controllers
 {
     public class EmployeeController : Controller
     {
-        public String Index()
+        public IActionResult Index1()
         {
-            return "Ben is coming!";
+            string message = $"Ben is coming! {DateTime.Now.ToString()}";
+            return View("Index1", message);
         }
 
         public ViewResult Index2()
         {
-            return View("Index");
+            var languages = new String[] {
+                "C#",
+                "Javascript",
+                "Python"
+            };
+            return View(languages);
         }
 
         public IActionResult Index3() {
